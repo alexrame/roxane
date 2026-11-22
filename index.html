@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roxane</title>
+<meta name="description" content="Julie et Alexandre ont la joie de vous annoncer la naissance de Roxane.">
+<meta property="og:title" content="Roxane">
+<meta property="og:description" content="Julie et Alexandre ont la joie de vous annoncer la naissance de Roxane.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roxane-rame-mattsson.org/">
+<meta property="og:image" content="https://roxane-rame-mattsson.org/roxane.png">
+<meta name="theme-color" content="#eceae5">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23e8e6e0'/><rect x='12' y='8' width='76' height='84' fill='%230f2a4a'/><rect x='16' y='12' width='34' height='40' fill='%23c9d3d6'/><rect x='16' y='62' width='68' height='26' fill='%231d466e'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Courier+Prime&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wall: #e8e6e0;        /* passe-partout / mat */
+    --night: #0b2140;       /* darkest exposure */
+    --prussian: #10294a;
+    --deep: #163759;
+    --tide: #1d466e;
+    --cobalt: #2c5a80;
+    --haze: #8ea6b8;
+    --pale: #cdd6d8;        /* least exposed paper */
+    --paper: #eef1f1;
+    --ink: #10294a;
+    --mist: #a9bfd1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; background: var(--wall); }
+  body {
+    min-height: 100vh;
+    background: var(--wall);
+    color: var(--paper);
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    padding: max(clamp(18px, 6vw, 64px), env(safe-area-inset-top)) clamp(14px, 6vw, 64px) calc(clamp(18px, 6vw, 64px) + env(safe-area-inset-bottom));
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* ---------- The print ---------- */
+  .print {
+    width: min(640px, 100%);
+    background: var(--pale);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06), 0 1px 1px rgba(0, 0, 0, .05), inset 0 0 0 1px rgba(255, 255, 255, .03);
+  }
+  /* Paper grain + uneven brushed emulsion over the whole print */
+  .print::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; z-index: 20;
+    opacity: .32; mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  section { position: relative; }
+  .blk { position: absolute; pointer-events: none; }
+  /* soft, slightly bleeding edges like hand-coated emulsion */
+  .soft { filter: blur(.6px); }
+
+  .mono {
+    font-family: "Courier Prime", monospace;
+    font-size: 11px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+  }
+
+  /* 1 — light block + name */
+  .s1 { min-height: clamp(420px, 92vw, 560px); background: #b9c9d4; }
+  .s1 .light {
+    left: 0; top: 0; width: 56%; height: 100%;
+    background:
+      radial-gradient(90% 40% at 30% 0%, rgba(120, 155, 190, .35), transparent 70%),
+      linear-gradient(180deg, #c9d6de 0%, #e6ecec 22%, #edf1f1 60%, #e1e8ea 92%, #d3dee3 100%);
+  }
+  .s1 .inner {
+    left: 18%; top: 34%; width: 38%; height: 60%;
+    background: rgba(255, 255, 255, .35);
+  }
+  .s1 .mid {
+    right: 0; top: 40%; width: 44%; height: 60%;
+    background: linear-gradient(180deg, #8eabc3, #7c9db8);
+    box-shadow: 0 0 18px rgba(30, 60, 100, .12);
+  }
+  .s1 .cloud {
+    right: 14%; top: 66%; width: 70px; height: 12px; border-radius: 50%;
+    background: rgba(245, 248, 250, .55); filter: blur(4px);
+  }
+  .s1 .text {
+    position: relative; z-index: 2;
+    width: 56%;
+    padding: clamp(28px, 8vw, 56px) clamp(16px, 4.5vw, 34px) 0;
+    color: var(--ink);
+  }
+  .s1 .intro { font-size: clamp(14px, 3.6vw, 18px); line-height: 1.5; font-style: italic; }
+  .s1 .name {
+    font-weight: 300; font-style: italic;
+    font-variation-settings: "opsz" 144;
+    font-size: clamp(50px, 14vw, 100px);
+    line-height: 1; letter-spacing: -.02em;
+    margin-top: clamp(18px, 5vw, 30px);
+  }
+  .s1 .name span { display: inline-block; opacity: 0; filter: blur(8px); animation: develop 2.2s ease forwards; animation-delay: calc(.3s + var(--i) * .16s); }
+  .s1 .surname { margin-top: 12px; color: rgba(16, 41, 74, .75); }
+  .s1 .kicker { position: absolute; z-index: 2; right: clamp(16px, 4vw, 30px); top: clamp(28px, 8vw, 56px); color: var(--deep); text-align: right; line-height: 2; }
+  .s1 .heart { position: absolute; z-index: 2; right: 0; bottom: 0; width: 44%; padding: 0 clamp(14px, 4vw, 26px) clamp(18px, 5vw, 30px); text-align: right; font-style: italic; font-size: clamp(13px, 3.4vw, 16px); color: #f6f8f9; line-height: 1.5; }
+
+  /* 2 — exposures (photos) */
+  .s2 { background: #d4dee2; padding: clamp(30px, 8vw, 54px) clamp(14px, 4vw, 30px) clamp(34px, 9vw, 60px); }
+  .s2 .shade { left: 0; top: 0; width: 30%; height: 100%; background: rgba(16, 41, 74, .05); }
+  .exposures { position: relative; display: grid; grid-template-columns: 1fr 3.4fr 1fr; gap: clamp(8px, 2.5vw, 16px); align-items: center; }
+  .exp { position: relative; }
+  .exp img, .exp .ph {
+    display: block; width: 100%; object-fit: cover;
+    filter: url(#cyanotype) contrast(1.06) brightness(1.02);
+  }
+  .exp .ph { background: linear-gradient(180deg, #7f9bb2, #45698c); filter: none; display: flex; align-items: center; justify-content: center; color: var(--paper); font-style: italic; font-weight: 300; font-size: clamp(22px, 6.5vw, 42px); letter-spacing: -.01em; }
+  .exp.side img { aspect-ratio: 3 / 4; }
+  .exp.main img, .exp.main .ph { aspect-ratio: 4 / 5; }
+  .exp.side { width: 82%; opacity: .9; }
+  .exp.side figcaption { font-size: 9px; letter-spacing: .18em; margin-top: 6px; }
+  .exp.l { justify-self: end; align-self: end; margin-bottom: 12%; }
+  .exp.r { justify-self: start; align-self: start; margin-top: 8%; }
+  .exp.main { z-index: 2; box-shadow: 0 10px 24px rgba(30, 60, 100, .12); }
+  .exp figcaption { margin-top: 10px; color: var(--tide); }
+  .exp.l figcaption { text-align: left; }
+  .exp.r figcaption { text-align: right; }
+  .exp.main figcaption { text-align: center; }
+
+  /* 2b — the cyanotype print (three birds and a star), set as one block of the composition */
+  .s2b { display: grid; grid-template-columns: 1fr 2fr; background: var(--prussian); }
+  .s2b .side { background: linear-gradient(180deg, #d9e1e4, #c6d3db); position: relative; }
+  .s2b .side::after { content: ""; position: absolute; left: 22%; right: 0; bottom: 0; height: 38%; background: rgba(90, 130, 167, .18); }
+  .s2b img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* 3 — dark band: Cyrano */
+  .s3 { background: #5a82a7; padding: clamp(40px, 10vw, 70px) clamp(18px, 6vw, 48px); }
+  .s3 .strip { left: 14%; top: 0; width: 38%; height: 100%; background: rgba(255, 255, 255, .08); }
+  .s3 blockquote { position: relative; font-style: italic; font-size: clamp(16px, 4.3vw, 21px); line-height: 1.6; color: #f6f8f9; }
+  .s3 blockquote b { font-weight: 400; color: #fff; }
+  .s3 cite { display: block; margin-top: 18px; font-style: normal; color: #dce6ee; }
+
+  /* 4 — Rox & Rouky + a quiet pale block */
+  .s4 { display: grid; grid-template-columns: 2fr 1fr; }
+  .s4 .left { background: #a9bfd1; padding: clamp(24px, 6vw, 40px) clamp(14px, 4vw, 26px); }
+  .s4 .right { background: linear-gradient(180deg, #e4eaeb, #d6e0e4); position: relative; }
+  .s4 .right::after { content: ""; position: absolute; left: 0; right: 30%; top: 0; height: 42%; background: rgba(90, 130, 167, .14); }
+  .s4 .exp img, .s4 .exp .ph { aspect-ratio: 1 / 1; }
+  .s4 .exp figcaption { text-align: left; color: var(--ink); }
+  .rr svg { display: block; width: 100%; height: auto; }
+
+  /* 5 — the sea */
+  .s5 { min-height: clamp(400px, 96vw, 540px); background: #5a84aa; }
+  .s5 canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .s5 .band { left: 0; top: 0; width: 100%; height: 18%; background: linear-gradient(180deg, #5a82a7, rgba(90, 130, 167, 0)); }
+  .s5 .content { position: relative; z-index: 2; padding: clamp(40px, 10vw, 64px) clamp(18px, 6vw, 48px) 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
+  .s5 .fullname { font-style: italic; font-weight: 300; font-variation-settings: "opsz" 144; font-size: clamp(30px, 8.5vw, 48px); line-height: 1.1; color: #fff; }
+  .s5 .fullsurname { margin-top: -12px; color: rgba(240, 245, 248, .8); }
+  .s5 .message { max-width: 430px; font-size: clamp(15px, 4vw, 18px); line-height: 1.65; color: #f6f8f9; }
+  .s5 .sign { font-style: italic; font-size: clamp(18px, 4.6vw, 22px); }
+
+  .play {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(255, 255, 255, .1); color: var(--paper);
+    border: 1px solid rgba(205, 214, 216, .45);
+    padding: 12px 18px; cursor: pointer;
+    font-family: "Courier Prime", monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+    transition: background .4s, border-color .4s;
+    backdrop-filter: blur(2px);
+  }
+  .play:hover { background: rgba(205, 214, 216, .12); border-color: var(--pale); }
+  .play .ico { width: 0; height: 0; border-left: 9px solid var(--paper); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+  .playing .ico { width: 9px; height: 12px; border: 0; border-left: 3px solid var(--paper); border-right: 3px solid var(--paper); }
+  .play em { font-family: "Fraunces", serif; font-size: 16px; letter-spacing: 0; text-transform: none; }
+  .player { width: min(380px, 100%); aspect-ratio: 16 / 9; overflow: hidden; outline: 1px solid rgba(205, 214, 216, .35); outline-offset: 6px; }
+  .player iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .s5 footer { position: absolute; z-index: 2; left: 0; right: 0; bottom: 18px; text-align: center; color: rgba(240, 245, 248, .7); }
+
+  .reveal { opacity: 0; transition: opacity 1.6s ease; }
+  .reveal.in { opacity: 1; }
+
+  @keyframes develop { to { opacity: 1; filter: blur(0); } }
+
+  @media (max-width: 460px) {
+    .s1 .heart { width: 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .s1 .name span, .reveal { opacity: 1; filter: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cyanotype duotone: luminance -> Prussian blue … paper white -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="cyanotype" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="
+      .1658 .5579 .0563 0 .165
+      .1318 .4434 .0448 0 .337
+      .0942 .3168 .0320 0 .514
+      0     0     0     1 0"/>
+  </filter>
+</svg>
+
+<main class="print">
+
+  <!-- 1 · light -->
+  <section class="s1">
+    <div class="blk light soft"></div>
+    <div class="blk inner soft"></div>
+    <div class="blk mid soft"></div>
+    <div class="blk cloud"></div>
+    <div class="text">
+      <p class="intro" id="intro"></p>
+      <h1 class="name" id="name" aria-label="Roxane"></h1>
+      <p class="surname mono" id="surname"></p>
+    </div>
+    <p class="kicker mono" id="kicker"></p>
+    <p class="heart" id="tagline"></p>
+  </section>
+
+  <!-- 2 · exposures -->
+  <section class="s2 reveal">
+    <div class="blk shade"></div>
+    <div class="exposures">
+      <figure class="exp side l">
+        <img src="maman.jpg" alt="Julie">
+        <figcaption class="mono" id="capMaman"></figcaption>
+      </figure>
+      <figure class="exp main">
+        <!-- Drop a file named roxane.png next to index.html: it replaces the placeholder automatically. -->
+        <img src="roxane.png" alt="Roxane"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'Roxane'}))">
+        <figcaption class="mono" id="capBaby"></figcaption>
+      </figure>
+      <figure class="exp side r">
+        <img src="papa.jpg" alt="Alexandre">
+        <figcaption class="mono" id="capPapa"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2b · cyanotype -->
+  <section class="s2b reveal">
+    <div class="side"></div>
+    <img src="oiseaux.jpg" alt="Cyanotype : trois oiseaux et une étoile" loading="lazy">
+  </section>
+
+  <!-- 3 · Cyrano -->
+  <section class="s3 reveal">
+    <div class="blk strip soft"></div>
+    <blockquote>
+      « Je t’aime, je suis fou, je n’en peux plus, c’est trop ;<br>
+      Ton nom est dans mon cœur comme dans un grelot,<br>
+      Et comme tout le temps, <b>Roxane</b>, je frissonne,<br>
+      Tout le temps, le grelot s’agite, et le nom sonne ! »
+      <cite class="mono">Edmond Rostand — Cyrano de Bergerac, acte III, scène 7</cite>
+    </blockquote>
+  </section>
+
+  <!-- 4 · Rox & Rouky -->
+  <section class="s4 reveal">
+    <div class="left">
+      <figure class="exp rr">
+        <svg viewBox="0 0 240 200" role="img" aria-label="Rox, un bébé, et Rouky, un chat">
+          <rect width="240" height="200" fill="#a9c0d3"/>
+          <rect x="0" y="0" width="120" height="200" fill="#bccede"/>
+          <circle cx="36" cy="38" r="13" fill="#f4f7f8" opacity=".7"/>
+          <path d="M0 172 H240" stroke="#f4f7f8" stroke-width="1.2" opacity=".7"/>
+          <g fill="#f4f7f8">
+            <!-- Rox, the baby -->
+            <path d="M56 172 C48 150 54 124 80 118 C102 114 112 138 110 172 Z"/>
+            <ellipse cx="108" cy="166" rx="20" ry="7.5"/>
+            <circle cx="82" cy="92" r="26"/>
+            <circle cx="135" cy="117" r="5.5"/>
+            <!-- Rouky, the cat -->
+            <path d="M156 172 C150 150 158 126 176 121 C196 118 204 146 200 172 Z"/>
+            <circle cx="170" cy="104" r="18"/>
+            <path d="M155 96 L157 76 L168 88 Z"/>
+            <path d="M174 87 L185 76 L187 97 Z"/>
+          </g>
+          <path d="M78 68 C72 56 88 50 91 60 C92 64 88 67 85 64 C88 61 84 57 82 61 C81 63 82 66 84 68 Z" fill="#f4f7f8"/>
+          <path d="M96 127 C112 123 122 119 131 113 L135 121 C124 128 114 133 99 137 Z" fill="#f4f7f8"/>
+          <path d="M196 170 C222 170 232 140 214 122 C210 119 207 123 209 127 C220 142 214 160 196 162 Z" fill="#f4f7f8"/>
+          <!-- details in exposed blue -->
+          <circle cx="95" cy="89" r="2.2" fill="#5a82a7"/>
+          <ellipse cx="101" cy="102" rx="2.8" ry="1.3" fill="#5a82a7"/>
+          <circle cx="78" cy="99" r="4" fill="#9db5c9" opacity=".45"/>
+          <ellipse cx="162" cy="101" rx="2.6" ry="1.2" fill="#5a82a7"/>
+          <path d="M152 108 l3 -2 l1 3 z" fill="#5a82a7"/>
+          <path d="M154 109 L139 106" stroke="#5a82a7" stroke-width=".9" stroke-linecap="round"/>
+          <path d="M154 111 L139 113" stroke="#5a82a7" stroke-width=".9" stroke-linecap="round"/>
+        </svg>
+        <figcaption class="mono">Rox &amp; Rouky</figcaption>
+      </figure>
+    </div>
+    <div class="right"></div>
+  </section>
+
+  <!-- 5 · the sea -->
+  <section class="s5 reveal">
+    <canvas id="sea" aria-hidden="true"></canvas>
+    <div class="blk band"></div>
+    <div class="content">
+      <p class="fullname" id="fullname"></p>
+      <p class="fullsurname mono" id="fullsurname"></p>
+      <p class="message" id="message"></p>
+      <p class="sign" id="sign"></p>
+      <button class="play" id="play" type="button" aria-label="Écouter Roxanne de The Police">
+        <span class="ico" aria-hidden="true"></span>
+        <span><em>Roxanne</em> · The Police, 1978</span>
+      </button>
+      <div class="player" id="player" hidden></div>
+    </div>
+    <footer class="mono">roxane-rame-mattsson.org</footer>
+  </section>
+
+</main>
+
+<script>
+  /* =========================================================
+     EDIT EVERYTHING HERE — the page fills itself from this.
+     ========================================================= */
+  const BABY = {
+    firstName: "Roxane",
+    fullName:  "Roxane, Josephina, Marie",
+    lastName:  "Ramé Mattsson",
+    mother:    "Julie",
+    father:    "Alexandre",
+    place:     "Paris",            // TODO if different
+    year:      "2026",
+    tagline:   "Roxane, de l’ancien persan <i>Raokhshna</i>,<br>signifie « <b>aube lumineuse</b> ».",
+    message:   "Roxane est arrivée. Merci pour vos pensées et vos messages — nous avons hâte de vous la présenter.",
+  };
+  /* ========================================================= */
+
+  const $ = (id) => document.getElementById(id);
+  const parents = `${BABY.mother} et ${BABY.father}`;
+  $("intro").textContent = `${parents} ont la joie de vous annoncer la naissance de`;
+  $("name").innerHTML = [...BABY.firstName].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("");
+  $("surname").textContent = BABY.lastName;
+  $("kicker").innerHTML = `${BABY.place}<br>${BABY.year}`;
+  $("tagline").innerHTML = BABY.tagline;
+  $("capPapa").textContent = BABY.father;
+  $("capBaby").textContent = BABY.firstName;
+  $("capMaman").textContent = BABY.mother;
+  $("fullname").textContent = BABY.fullName;
+  $("fullsurname").textContent = BABY.lastName;
+  $("message").textContent = BABY.message;
+  $("sign").textContent = parents;
+
+  // Slow fade-in as sections reach the viewport
+  const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("in")), { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // The sea: dark water with faint moving glints, as in the print
+  (function sea() {
+    const c = $("sea"), ctx = c.getContext("2d");
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let w, h, glints = [];
+    function resize() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      w = c.clientWidth; h = c.clientHeight;
+      c.width = w * dpr; c.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      glints = Array.from({ length: Math.round(w * h / 260) }, () => {
+        const y = Math.random() ** 1.6 * h;        // denser near the horizon
+        return { x: Math.random() * w, y, l: 2 + Math.random() * 10 * (1 - y / h * .5), p: Math.random() * 6.28, s: .4 + Math.random() * 1.2 };
+      });
+    }
+    function draw(t) {
+      const g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, "#6a90b2"); g.addColorStop(.5, "#5a84aa"); g.addColorStop(1, "#4b77a0");
+      ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+      // a faint lighter path on the water
+      const r = ctx.createRadialGradient(w * .42, h * .15, 0, w * .42, h * .15, h * .9);
+      r.addColorStop(0, "rgba(235,242,246,.22)"); r.addColorStop(1, "rgba(235,242,246,0)");
+      ctx.fillStyle = r; ctx.fillRect(0, 0, w, h);
+      for (const q of glints) {
+        const a = Math.max(0, Math.sin(q.p + t * .001 * q.s)) ** 3 * (1 - q.y / h * .7) * .55;
+        if (a < .02) continue;
+        ctx.fillStyle = `rgba(255,255,255,${a * 1.2})`;
+        ctx.fillRect(q.x + Math.sin(t * .0003 + q.p) * 3, q.y, q.l, 1);
+      }
+      if (!still) requestAnimationFrame(draw);
+    }
+    resize(); addEventListener("resize", resize);
+    requestAnimationFrame(draw);
+  })();
+
+  // Music: official video "The Police - Roxanne" (ThePoliceVEVO), loaded on first tap
+  const YT_ID = "3T1c7GkzRQQ";
+  let started = false;
+  $("play").addEventListener("click", () => {
+    const p = $("player");
+    if (!started) {
+      p.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&rel=0&playsinline=1"
+        title="The Police - Roxanne" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      started = true;
+      p.hidden = false;
+    } else {
+      p.hidden = !p.hidden;
+    }
+    $("play").classList.toggle("playing", !p.hidden);
+  });
+</script>
+</body>
+</html>
